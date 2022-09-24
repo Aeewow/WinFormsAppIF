@@ -6,5 +6,10 @@ namespace WinFormsAppIF
         {
             InitializeComponent();
         }
+
+        private void toLine_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
