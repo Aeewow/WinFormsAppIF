@@ -5,10 +5,13 @@ namespace WinFormsAppIF
         public Form1()
         {
             InitializeComponent();
+            toLine.Text = Properties.Settings.Default.value.ToString();
         }
 
         private void toLine_TextChanged(object sender, EventArgs e)
         {
+
+           
 
         }
         public class Logic
@@ -30,6 +33,25 @@ namespace WinFormsAppIF
                 }
                 return outMessage;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int value;
+            try
+            {
+                value = int.Parse(this.toLine.Text);
+            }
+            catch (FormatException)
+            {
+                return;
+            }
+
+            Properties.Settings.Default.value = value;
+            Properties.Settings.Default.Save();
+            string Message = Logic.Compare(value);
+            MessageBox.Show(Logic.Compare(value));
+
         }
     }
 }
